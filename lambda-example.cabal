@@ -1,0 +1,69 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           lambda-example
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/seanhess/lambda-example#readme>
+homepage:       https://github.com/seanhess/lambda-example#readme
+bug-reports:    https://github.com/seanhess/lambda-example/issues
+author:         Sean Hess
+maintainer:     seanhess@gmail.com
+copyright:      All Rights Reserved
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/seanhess/lambda-example
+
+library
+  exposed-modules:
+      WordCount
+  other-modules:
+      Paths_lambda_example
+  hs-source-dirs:
+      src
+  build-depends:
+      aeson
+    , aws-lambda-haskell-runtime
+    , base >=4.7 && <5
+    , bytestring
+  default-language: Haskell2010
+
+executable lambda-example-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_lambda_example
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , aws-lambda-haskell-runtime
+    , base >=4.7 && <5
+    , bytestring
+    , lambda-example
+  default-language: Haskell2010
+
+test-suite lambda-example-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_lambda_example
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , aws-lambda-haskell-runtime
+    , base >=4.7 && <5
+    , bytestring
+    , lambda-example
+  default-language: Haskell2010

@@ -1,0 +1,21 @@
+org: ipiorg
+app: lambda-example
+
+service: lambda-example
+
+provider:
+  name: aws
+  ecr:
+    images:
+      lambda-example: # the name of the image
+        path: ./
+
+functions:
+  finalfive:
+    name: Lambda Example
+    description: Main Description
+    image:
+      name: lambda-example # again the name of the image
+    events:
+      - http: ANY /
+

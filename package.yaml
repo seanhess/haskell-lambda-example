@@ -1,0 +1,51 @@
+name:                lambda-example
+version:             0.1.0.0
+github:              "seanhess/lambda-example"
+license:             BSD3
+author:              "Sean Hess"
+maintainer:          "seanhess@gmail.com"
+copyright:           "All Rights Reserved"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/seanhess/lambda-example#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- aws-lambda-haskell-runtime
+- bytestring
+
+library:
+  source-dirs: src
+
+executables:
+  lambda-example-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lambda-example
+
+tests:
+  lambda-example-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lambda-example
